@@ -88,11 +88,14 @@ export const getAllJobs = async (req, res) => {
 export const getJobById = async (req, res) => {
   try {
     const jobId = req.params.id;
-    const job = await Job.findById(jobId);
+    const job = await Job.findById(jobId).populate("company").populate({
+      path: "applications",
+    });
+    
     if (!job) {
       return res
         .status(404)
-        .json({ message: "Jobs Not Found.", status: false });
+        .json({ message: "Job Not Found.", status: false });
     }
 
     return res.status(200).json({ job, status: true });
@@ -103,6 +106,9 @@ export const getJobById = async (req, res) => {
       .json({ message: "Find Job Post server error", status: false });
   }
 };
+
+
+
 
 /*****************Find admin created job******************* */
 export const getAdminJobs = async (req, res) => {
