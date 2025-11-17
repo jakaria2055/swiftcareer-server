@@ -94,10 +94,32 @@ export const updateCompany = async (req, res) => {
       return res.status(404).json({ message: "Company Not Found!" });
     }
 
-    return res.status(200).json({ message: "Company Updated successfully.", company });
+    return res
+      .status(200)
+      .json({ message: "Company Updated successfully.", company });
   } catch (error) {
     console.log(error);
-    return res.status(500).json({ message: "Server Error", error: error.message });
+    return res
+      .status(500)
+      .json({ message: "Server Error", error: error.message });
   }
 };
 
+
+/*******************Get All Available Company************************/
+export const getAllRegisterCompanies = async (req, res) => {
+  try {
+    const allCompanies = await Company.find();
+
+    if (!allCompanies) {
+      return res.status(404).json({ message: "No Company Found!" });
+    }
+
+    return res.status(200).json({
+      allCompanies,
+      success: true,
+    });
+  } catch (error) {
+    console.log(error);
+  }
+};

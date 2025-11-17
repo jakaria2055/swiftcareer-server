@@ -5,8 +5,7 @@ import getDataURI from "../../utils/dataURI.js";
 import cloudinary from "../../utils/cloudinary.js";
 import path from "path";
 
-/*************************User Register*************************/
-/**************************************************************/
+/**********************User Register********************/
 export const userRegister = async (req, res) => {
   try {
     const { fullname, email, phoneNumber, password, role } = req.body;
@@ -56,10 +55,9 @@ export const userRegister = async (req, res) => {
       success: false,
     });
   }
-};
+}
 
-/*************************User Login************************* */
-/**************************************************************/
+/********************User Login********************** */
 export const userLogin = async (req, res) => {
   try {
     const { email, password, role } = req.body;
@@ -129,8 +127,7 @@ export const userLogin = async (req, res) => {
   }
 };
 
-/*************************User Logout************************* */
-/**************************************************************/
+/*********************User Logout******************** */
 export const userLogout = async (req, res) => {
   try {
     return res.status(200).cookie("token", "", { maxAge: 0 }).json({
@@ -206,8 +203,7 @@ export const userLogout = async (req, res) => {
 //   }
 // };
 
-/*************************User Profile Update************************* */
-/**************************************************************/
+/*******************User Profile Update******************** */
 export const updateProfile = async (req, res) => {
   try {
     const { fullname, email, phoneNumber, bio, skills } = req.body;

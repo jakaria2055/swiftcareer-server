@@ -127,3 +127,25 @@ export const getAdminJobs = async (req, res) => {
       .json({ message: "Find Admin Job Post server error", status: false });
   }
 };
+
+
+/**************User Get All Job across company**************** */
+export const getJobByCompany = async (req, res) => {
+  try {
+    const companyId = req.params.id;
+    const jobs = await Job.find({company: companyId})
+    
+    if (!jobs) {
+      return res
+        .status(404)
+        .json({ message: "No Job Found for This Company.", status: false });
+    }
+
+    return res.status(200).json({ jobs, status: true });
+  } catch (error) {
+    console.log(error);
+    return res
+      .status(500)
+      .json({ message: "Find Company Job Post server error", status: false });
+  }
+};
