@@ -11,13 +11,13 @@ dotenv.config({});
 
 const app = express();
 
-// app.get("/", (req, res) => {
-//   return res.status(200).json({
-//     message: "Server is running fine...",
-//     timestamp: new Date().toISOString(),
-//     success: true,
-//   });
-// });
+app.get("/", (req, res) => {
+  return res.status(200).json({
+    message: "Server is running fine...",
+    timestamp: new Date().toISOString(),
+    success: true,
+  });
+});
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
