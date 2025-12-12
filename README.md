@@ -1,9 +1,9 @@
-Perfect! Here's a **full, complete, copy-paste-ready `README.md`** for your SwiftCareer backend project. I’ve included everything—setup, environment variables, API routes, middleware, deployment, and examples—so you can use it as-is.
-
 ````markdown
 # SwiftCareer Server
 
-**SwiftCareer Server** is the backend for SwiftCareer, a modern job portal platform. It allows users to register, login, apply for jobs, manage companies, post jobs, and handle applications. The backend is built with **Node.js**, **Express**, **MongoDB**, and supports JWT authentication and file uploads.
+**SwiftCareer Server** is the backend for SwiftCareer, a modern job portal platform.
+ It allows users to register, login, apply for jobs, manage companies, post jobs, and handle applications.
+The backend is built with **Node.js**, **Express**, **MongoDB**, and supports JWT authentication and file uploads.
 
 ---
 
