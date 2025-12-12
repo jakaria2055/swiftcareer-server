@@ -11,13 +11,13 @@ dotenv.config({});
 
 const app = express();
 
-app.get("/", (req, res) => {
-  return res.status(200).json({
-    message: "Server is running fine...",
-    timestamp: new Date().toISOString(),
-    success: true,
-  });
-});
+// app.get("/", (req, res) => {
+//   return res.status(200).json({
+//     message: "Server is running fine...",
+//     timestamp: new Date().toISOString(),
+//     success: true,
+//   });
+// });
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -37,6 +37,11 @@ app.use("/api/users", userRouter);
 app.use("/api/company", companyRouter);
 app.use("/api/job", jobRouter);
 app.use("/api/application", applicationRouter);
+
+if (process.env.NODE_ENV !== "production") {
+  const PORT = process.env.PORT || 5000;
+  server.listen(PORT, () => console.log("Server is running on PORT: ", +PORT));
+}
 
 app.listen(PORT, () => {
   connectDB();
